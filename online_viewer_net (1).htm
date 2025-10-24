@@ -1,0 +1,269 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jinal Panchal | Portfolio</title>
+
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- AOS (Animate on Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
+  <!-- Google Fonts (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #0e0e0e;
+      --text-color: #ffffff;
+      --accent-color: #61aaff;
+      --box-bg: #1e1e1e;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Fira Sans', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      position: relative;
+      z-index: 1;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-color);
+      z-index: 0;
+      top: 0;
+      left: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px 30px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: var(--accent-color);
+    }
+
+    header p#typing-text {
+      font-size: 1.2rem;
+      color: #ccc;
+      height: 1.5rem;
+    }
+
+    .dark-toggle {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      z-index: 10;
+      background: var(--box-bg);
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: var(--accent-color);
+      margin-bottom: 40px;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .skill-box {
+      background-color: var(--box-bg);
+      padding: 20px;
+      border-radius: 10px;
+      width: 280px;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-box:hover {
+      transform: scale(1.05);
+    }
+
+    .skill-box h3 {
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .skills-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- Dark Mode Toggle -->
+  <button class="dark-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+  <!-- Main Content -->
+  <div class="content">
+    <header class="animate__animated animate__fadeInDown">
+      <h1>Jinal Panchal</h1>
+      <p id="typing-text"></p>
+    </header>
+
+    <section data-aos="fade-up">
+      <h2>About Me</h2>
+      <p style="text-align: center; max-width: 800px; margin: auto;">
+        <strong>I </strong>, am passionate <strong>Computer Science</strong> major at Rutgers–New Brunswick. I’m deeply interested in technology, user experience design, and problem-solving through coding. My goal is to build innovative software solutions that make people's lives easier and more connected.
+      </p>
+    </section>
+
+    <section data-aos="fade-up">
+      <h2>My Skills</h2>
+      <div class="skills-container">
+        <div class="skill-box" data-aos="fade-up" data-aos-delay="100">
+          <h3>Python Programming</h3>
+          <p>
+            Experienced in writing efficient Python code for data handling, automation, and beginner-level machine learning applications.
+          </p>
+        </div>
+
+        <div class="skill-box" data-aos="fade-up" data-aos-delay="200">
+          <h3>C & C++ Programming</h3>
+          <p>
+            Skilled in writing structured and object-oriented programs in C and C++ for algorithmic problem solving and systems-level coding.
+          </p>
+        </div>
+
+        <div class="skill-box" data-aos="fade-up" data-aos-delay="300">
+          <h3>UI/UX Design</h3>
+          <p>
+            Creative and intuitive UI designs using Figma and design tools that enhance usability and user experience.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Animate on Scroll -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+
+  <!-- Typing Animation -->
+  <script>
+    const text = "B.S. Computer Science Student | Rutgers University";
+    const typingText = document.getElementById("typing-text");
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        typingText.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 60);
+      }
+    }
+    typeWriter();
+  </script>
+
+  <!-- Dark Mode Toggle -->
+  <script>
+    let dark = true;
+    function toggleDarkMode() {
+      if (dark) {
+        document.documentElement.style.setProperty('--bg-color', '#ffffff');
+        document.documentElement.style.setProperty('--text-color', '#000000');
+        document.documentElement.style.setProperty('--box-bg', '#f2f2f2');
+        document.documentElement.style.setProperty('--accent-color', '#007acc');
+      } else {
+        document.documentElement.style.setProperty('--bg-color', '#0e0e0e');
+        document.documentElement.style.setProperty('--text-color', '#ffffff');
+        document.documentElement.style.setProperty('--box-bg', '#1e1e1e');
+        document.documentElement.style.setProperty('--accent-color', '#61aaff');
+      }
+      dark = !dark;
+    }
+  </script>
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 60,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": { "value": "#61aaff" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" },
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#61aaff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 3,
+          "direction": "none",
+          "out_mode": "bounce"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" },
+        },
+        "modes": {
+          "repulse": { "distance": 100, "duration": 0.4 },
+          "push": { "particles_nb": 4 },
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+</body>
+</html>
